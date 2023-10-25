@@ -1,5 +1,10 @@
 import { FC } from "react";
-//tools pliki ts np sprawdzic czy string jest w mailu
+import { Outlet } from "react-router-dom";
+
 export const Blog: FC = () => {
-  return <>Blog</>;
+  return (
+    <div>
+      <div>Blog</div>
+    </div>
+  );
 };
