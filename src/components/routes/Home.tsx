@@ -1,7 +1,7 @@
 import React from "react";
 import { useGetPosts } from "../../api/posts/useGetPosts";
 import "./Home.css";
-import { PostCard } from "../common/PostCard";
+import { Card } from "../common/Card";
 
 export default function Home() {
   const posts = useGetPosts();
@@ -13,7 +13,14 @@ export default function Home() {
   return (
     <div className="posts">
       {posts.map((post) => (
-        <PostCard {...post} key={post.id} />
+        <Card
+          description={post.body}
+          title={post.title}
+          image={post.url}
+          key={post.id}
+          userId={post.userId}
+          postId={post.id}
+        />
       ))}
     </div>
   );
