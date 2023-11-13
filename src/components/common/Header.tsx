@@ -46,6 +46,15 @@ export function Header() {
           >
             Users
           </Typography>
+          <Typography
+            variant="h6"
+            color="inherit"
+            component={Link}
+            to="/photos"
+            sx={{ textDecoration: "none" }}
+          >
+            Photos
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>

@@ -9,6 +9,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import "./Albums.css";
+import { Link } from "react-router-dom";
 
 export default function Albums() {
   const albums = useGetAlbums();
@@ -20,7 +21,7 @@ export default function Albums() {
     <div className="albums">
       <List sx={{ width: "100%", maxWidth: 500, bgcolor: "background.paper" }}>
         {albums.map((album) => (
-          <ListItem key={album.id}>
+          <ListItem key={album.id} component={Link} to={`/photos/${album.id}`}>
             <ListItemAvatar>
               <Avatar>
                 <ImageIcon />

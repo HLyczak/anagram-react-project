@@ -9,8 +9,8 @@ import { Post } from "../../api/posts/requests";
 import { Link } from "react-router-dom";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   userId?: number;
   postId?: number;

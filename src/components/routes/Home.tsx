@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetPosts } from "../../api/posts/useGetPosts";
-import "./Home.css";
+
 import { Card } from "../common/Card";
 
 export default function Home() {
