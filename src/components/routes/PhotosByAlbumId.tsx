@@ -11,7 +11,6 @@ export default function PhotosByAlbumId() {
   if (!photos) {
     return <div>loading ...</div>;
   }
-  console.log(photos);
 
   return (
     <div className="photos">

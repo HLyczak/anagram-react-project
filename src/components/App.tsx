@@ -13,6 +13,11 @@ import ToDos from "./routes/ToDos";
 import Photos from "./routes/Photos";
 import PhotosByAlbumId from "./routes/PhotosByAlbumId";
 import AddPhotos from "./routes/AddPhotos";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import EditUser from "./routes/EditUser";
+import EditPhoto from "./routes/EditPhoto";
 
 export const App = () => {
   return (
@@ -34,9 +39,11 @@ export const App = () => {
             <Route path="/photos/:id" element={<PhotosByAlbumId />} />
             {/* <Route path="/todos/:id" element={<ToDos />} /> */}
             <Route path="/add-photos" element={<AddPhotos />} />
-
+            <Route path="/users/edit/:id" element={<EditUser />} />
+            <Route path="/photo/edit/:id" element={<EditPhoto />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
+          <ToastContainer />
         </div>
       </Container>
     </BrowserRouter>

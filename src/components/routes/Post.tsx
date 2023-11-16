@@ -3,7 +3,8 @@ import { useGetPosts } from "../../api/posts/useGetPosts";
 import "./Home.css";
 import { Card } from "../common/Card";
 import { useGetPost } from "../../api/posts/useGetPost";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function Post() {
   const { id } = useParams();
@@ -15,13 +16,14 @@ export default function Post() {
   /// ...post rozpakowuje nam posta post.body
   return (
     <div className="post">
-      <Card
-        description={post.body}
-        title={post.title}
-        image={post.url}
-        userId={post.userId}
-        postId={post.id}
-      />
+      <Card description={post.body} title={post.title} image={post.url}>
+        <Button size="small" component={Link} to={`/users/${post.userId}`}>
+          User
+        </Button>
+        <Button size="small" component={Link} to={`/comments/${post.id}`}>
+          Comments
+        </Button>
+      </Card>
     </div>
   );
 }

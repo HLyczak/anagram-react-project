@@ -1,7 +1,8 @@
 import React from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { useGetUser } from "../../api/users/useGetUser";
 import UserCard from "../common/UserCard";
+import { Button } from "@mui/material";
 
 export default function User() {
   const { id } = useParams();
@@ -22,8 +23,14 @@ export default function User() {
           .join("")}
         website={user.website}
         address={user.address}
-        userId={user.id}
-      />
+      >
+        <Button size="small" component={Link} to={`/users/${user.id}/todos`}>
+          ToDo List
+        </Button>
+        <Button size="small" component={Link} to={`/users/edit/${user.id}`}>
+          Edit
+        </Button>
+      </UserCard>
       <Outlet />
     </div>
   );

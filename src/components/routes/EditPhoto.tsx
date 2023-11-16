@@ -1,9 +1,17 @@
 import { Button, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useGetPhoto } from "../../api/photos/UserGetPhoto";
 
-export default function AddPhotos() {
+export default function ćć() {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const photo = useGetPhoto(id || "");
+
+  if (!photo) {
+    return <div>loading ...</div>;
+  }
+
   return (
     <div>
       <form
@@ -11,26 +19,24 @@ export default function AddPhotos() {
           event.preventDefault();
           const formData = new FormData(event.currentTarget);
           const response = await fetch(
-            "https://jsonplaceholder.typicode.com/posts",
+            `https://jsonplaceholder.typicode.com/photos/${photo.id}`,
             {
-              method: "POST",
+              method: "PATCH",
               body: formData,
             }
           );
-          const data = await response.json();
+          await response.json();
           toast.success("Success");
 
-          navigate("/");
+          navigate("/photos");
         }}
       >
         <TextField
-          id="userId"
-          name="userId"
-          label="UserId"
-          defaultValue="/userId"
+          id="title"
+          name="title"
+          label="Title"
+          defaultValue={photo.title}
         />
-        <TextField id="title" name="title" label="Title" defaultValue="Title" />
-        <TextField id="body" name="body" label="Body" defaultValue="Body" />
         <Button type="submit">Submmit</Button>
       </form>
     </div>

@@ -1,20 +1,11 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { User } from "../../api/users/requests";
 
@@ -23,9 +14,8 @@ interface Props {
   description: string;
   avatar: string;
   website?: string;
-  userId?: string;
   address?: User["address"];
-  showDetails?: boolean;
+  children?: React.ReactNode;
 }
 
 export default function UserCard({
@@ -33,9 +23,8 @@ export default function UserCard({
   description,
   avatar,
   website,
-  userId,
   address,
-  showDetails,
+  children,
 }: Props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -70,18 +59,7 @@ export default function UserCard({
           </Typography>
         </CardContent>
       )}
-      <CardActions>
-        {userId && (
-          <Button size="small" component={Link} to={`/users/${userId}/todos`}>
-            ToDo List
-          </Button>
-        )}
-        {userId && showDetails && (
-          <Button size="small" component={Link} to={`/users/${userId}`}>
-            Details
-          </Button>
-        )}
-      </CardActions>
+      <CardActions>{children}</CardActions>
     </Card>
   );
 }
