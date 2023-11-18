@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import { User } from "../../api/users/requests";
 
@@ -30,7 +30,7 @@ export default function UserCard({
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: grey[500] }} aria-label="recipe">
             {avatar}
           </Avatar>
         }

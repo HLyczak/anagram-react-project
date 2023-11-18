@@ -15,7 +15,13 @@ interface Props {
 
 export function Card({ description, title, image, children }: Props) {
   return (
-    <MCard>
+    <MCard
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       {image && <CardMedia sx={{ height: 140 }} image={image} title="image" />}
       {/* jesli image to wykonaj to co po && */}
       <CardContent>

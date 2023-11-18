@@ -1,15 +1,14 @@
-import React from "react";
 import { useGetUsers } from "../../api/users/useGetUsers";
 import UserCard from "../common/UserCard";
 import "./Users.css";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function Users() {
   const users = useGetUsers();
   //na comentarzy nie ma postow dopiero sie laduja
   if (!users) {
-    return <div>loading ...</div>;
+    return <CircularProgress color="secondary" />;
   }
 
   return (
@@ -23,13 +22,28 @@ export default function Users() {
             .map((t) => t[0])
             .join("")}
         >
-          <Button size="small" component={Link} to={`/users/${user.id}/todos`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/users/${user.id}/todos`}
+            color="secondary"
+          >
             ToDo List
           </Button>
-          <Button size="small" component={Link} to={`/users/${user.id}`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/users/${user.id}`}
+            color="secondary"
+          >
             Details
           </Button>
-          <Button size="small" component={Link} to={`/users/edit/${user.id}`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/users/edit/${user.id}`}
+            color="secondary"
+          >
             Edit
           </Button>
         </UserCard>

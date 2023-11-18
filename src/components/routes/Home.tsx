@@ -1,17 +1,24 @@
-import React from "react";
 import { useGetPosts } from "../../api/posts/useGetPosts";
-
 import { Card } from "../common/Card";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 export default function Home() {
   const posts = useGetPosts();
   const navigate = useNavigate();
   //na poczatku nie ma postow dopiero sie laduja
+
   if (!posts) {
-    return <div>loading ...</div>;
+    return <CircularProgress color="secondary" />;
+  }
+
+  async function onDelete(id: number) {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: "DELETE",
+    });
+    toast.success("Success");
+    navigate("/");
   }
   /// ...post rozpakowuje nam posta post.body
   return (
@@ -23,27 +30,34 @@ export default function Home() {
           image={post.url}
           key={post.id}
         >
-          <Button size="small" component={Link} to={`/users/${post.userId}`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/users/${post.userId}`}
+            color="secondary"
+          >
             User
           </Button>
-          <Button size="small" component={Link} to={`/posts/${post.id}`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/posts/${post.id}`}
+            color="secondary"
+          >
             Details
           </Button>
-          <Button size="small" component={Link} to={`/comments/${post.id}`}>
+          <Button
+            size="small"
+            component={Link}
+            to={`/comments/${post.id}`}
+            color="secondary"
+          >
             Comments
           </Button>
           <Button
             size="small"
-            onClick={async () => {
-              await fetch(
-                `https://jsonplaceholder.typicode.com/posts/${post.id}`,
-                {
-                  method: "DELETE",
-                }
-              );
-              toast.success("Success");
-              navigate("/");
-            }}
+            color="secondary"
+            onClick={() => onDelete(post.id)}
           >
             Delete
           </Button>

@@ -1,13 +1,13 @@
-import React from "react";
 import { useGetComments } from "../../api/comments/useGetComments";
 import { Card } from "../common/Card";
 import "./Comments.css";
+import { CircularProgress } from "@mui/material";
 
 export default function Comments() {
   const comments = useGetComments();
   //na comentarzy nie ma postow dopiero sie laduja
   if (!comments) {
-    return <div>loading ...</div>;
+    return <CircularProgress color="secondary" />;
   }
 
   return (

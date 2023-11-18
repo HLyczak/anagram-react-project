@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
-
 import { Header } from "./common/Header";
 import Comments from "./routes/Comments";
 import Albums from "./routes/Albums";
@@ -14,7 +13,6 @@ import Photos from "./routes/Photos";
 import PhotosByAlbumId from "./routes/PhotosByAlbumId";
 import AddPhotos from "./routes/AddPhotos";
 import { ToastContainer } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 import EditUser from "./routes/EditUser";
 import EditPhoto from "./routes/EditPhoto";
@@ -22,9 +20,9 @@ import EditPhoto from "./routes/EditPhoto";
 export const App = () => {
   return (
     <BrowserRouter>
-      <Container>
-        <div className="App">
-          <Header />
+      <div className="App">
+        <Header />
+        <Container>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/comments" element={<Comments />} />
@@ -43,9 +41,9 @@ export const App = () => {
             <Route path="/photo/edit/:id" element={<EditPhoto />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
-          <ToastContainer />
-        </div>
-      </Container>
+        </Container>
+        <ToastContainer />
+      </div>
     </BrowserRouter>
   );
 };

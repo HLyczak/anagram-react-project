@@ -1,15 +1,14 @@
-import React from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { useGetUser } from "../../api/users/useGetUser";
 import UserCard from "../common/UserCard";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 export default function User() {
   const { id } = useParams();
   const user = useGetUser(id || "");
   //na comentarzy nie ma postow dopiero sie laduja
   if (!user) {
-    return <div>loading ...</div>;
+    return <CircularProgress color="secondary" />;
   }
 
   return (
@@ -24,10 +23,20 @@ export default function User() {
         website={user.website}
         address={user.address}
       >
-        <Button size="small" component={Link} to={`/users/${user.id}/todos`}>
+        <Button
+          size="small"
+          component={Link}
+          to={`/users/${user.id}/todos`}
+          color="secondary"
+        >
           ToDo List
         </Button>
-        <Button size="small" component={Link} to={`/users/edit/${user.id}`}>
+        <Button
+          size="small"
+          component={Link}
+          to={`/users/edit/${user.id}`}
+          color="secondary"
+        >
           Edit
         </Button>
       </UserCard>

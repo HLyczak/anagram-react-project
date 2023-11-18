@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useParams } from "react-router-dom";
 import { useGetPhotosByAlbumId } from "../../api/photos/useGetPhotosByAlbumId";
 import { Card } from "../common/Card";
