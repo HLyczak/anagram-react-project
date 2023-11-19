@@ -17,6 +17,7 @@ export async function getPhotos() {
   const photos: Photos[] = await respone.json();
   return photos;
 }
+
 export async function getPhotosById(albumId: string) {
   const respone = await fetch(
     `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`

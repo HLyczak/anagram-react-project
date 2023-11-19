@@ -5,6 +5,7 @@ import "./AddPhotos.css";
 
 export default function AddPhotos() {
   const navigate = useNavigate();
+
   return (
     <form
       onSubmit={async (event) => {

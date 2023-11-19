@@ -6,6 +6,7 @@
   justify-content: center;
   margin: auto;
 }
+
 @media (max-width: 600px) {
   .posts {
     grid-template-columns: auto;

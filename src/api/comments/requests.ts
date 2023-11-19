@@ -11,6 +11,7 @@ export async function getComments() {
   const comments: Comments[] = await respone.json();
   return comments;
 }
+
 export async function getCommentsbyPostId(postId: string) {
   const respone = await fetch(
     `https://jsonplaceholder.typicode.com/comments/?postId=${postId}`

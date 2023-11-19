@@ -5,7 +5,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-
 import "./Albums.css";
 import { Link } from "react-router-dom";
 import { CircularProgress, Divider } from "@mui/material";
@@ -13,10 +12,11 @@ import PermMediaIcon from "@mui/icons-material/PermMedia";
 
 export default function Albums() {
   const albums = useGetAlbums();
-  //na comentarzy nie ma postow dopiero sie laduja
+
   if (!albums) {
     return <CircularProgress color="secondary" />;
   }
+
   return (
     <div className="albums">
       <List sx={{ width: "100%", maxWidth: 500, bgcolor: "background.paper" }}>

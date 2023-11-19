@@ -5,7 +5,7 @@ import { CircularProgress } from "@mui/material";
 
 export default function Comments() {
   const comments = useGetComments();
-  //na comentarzy nie ma postow dopiero sie laduja
+
   if (!comments) {
     return <CircularProgress color="secondary" />;
   }

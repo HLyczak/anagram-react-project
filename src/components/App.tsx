@@ -35,7 +35,6 @@ export const App = () => {
             <Route path="/posts/:id" element={<Post />} />
             <Route path="/comments/:id" element={<CommentsByPostId />} />
             <Route path="/photos/:id" element={<PhotosByAlbumId />} />
-            {/* <Route path="/todos/:id" element={<ToDos />} /> */}
             <Route path="/add-photos" element={<AddPhotos />} />
             <Route path="/users/edit/:id" element={<EditUser />} />
             <Route path="/photo/edit/:id" element={<EditPhoto />} />

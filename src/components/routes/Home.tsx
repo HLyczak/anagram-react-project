@@ -7,7 +7,6 @@ import { Button, CircularProgress } from "@mui/material";
 export default function Home() {
   const posts = useGetPosts();
   const navigate = useNavigate();
-  //na poczatku nie ma postow dopiero sie laduja
 
   if (!posts) {
     return <CircularProgress color="secondary" />;
@@ -20,7 +19,7 @@ export default function Home() {
     toast.success("Success");
     navigate("/");
   }
-  /// ...post rozpakowuje nam posta post.body
+
   return (
     <div className="posts">
       {posts.map((post) => (

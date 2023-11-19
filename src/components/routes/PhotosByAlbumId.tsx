@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useGetPhotosByAlbumId } from "../../api/photos/useGetPhotosByAlbumId";
 import { Card } from "../common/Card";
+import { CircularProgress } from "@mui/material";
 
 export default function PhotosByAlbumId() {
   const { id } = useParams();
   const photos = useGetPhotosByAlbumId(id || "");
-  //na comentarzy nie ma postow dopiero sie laduja
-  if (!photos) {
-    return <div>loading ...</div>;
-  }
 
+  if (!photos) {
+    return <CircularProgress color="secondary" />;
+  }
   return (
     <div className="photos">
       {photos.map((photo) => (

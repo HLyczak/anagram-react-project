@@ -15,6 +15,7 @@ export async function getPosts() {
   })); //destrukcja
   return posts;
 }
+
 export async function getPost(postId: string) {
   const respone = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postId}`

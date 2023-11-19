@@ -6,7 +6,7 @@ import { Button, CircularProgress } from "@mui/material";
 export default function User() {
   const { id } = useParams();
   const user = useGetUser(id || "");
-  //na comentarzy nie ma postow dopiero sie laduja
+
   if (!user) {
     return <CircularProgress color="secondary" />;
   }

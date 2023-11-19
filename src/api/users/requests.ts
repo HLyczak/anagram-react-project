@@ -31,6 +31,7 @@ export async function getUsers() {
   })); //destrukcja
   return users;
 }
+
 export async function getUser(userId: string) {
   const respone = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`

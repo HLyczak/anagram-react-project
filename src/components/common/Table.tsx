@@ -1,4 +1,4 @@
-import Table from "@mui/material/Table";
+import MTable from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -6,13 +6,15 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { ToDos } from "../../api/todos/request";
+
 interface Props {
   data: ToDos[];
 }
-export default function BasicTable({ data }: Props) {
+
+export default function Table({ data }: Props) {
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <MTable>
         <TableHead>
           <TableRow>
             <TableCell>Name </TableCell>
@@ -34,7 +36,7 @@ export default function BasicTable({ data }: Props) {
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+      </MTable>
     </TableContainer>
   );
 }

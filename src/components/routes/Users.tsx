@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Users() {
   const users = useGetUsers();
-  //na comentarzy nie ma postow dopiero sie laduja
+
   if (!users) {
     return <CircularProgress color="secondary" />;
   }
