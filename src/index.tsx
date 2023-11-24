@@ -6,7 +6,7 @@ import { App } from "./components/App";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-
+//React.StrictMode tryb deweloperski
 root.render(
   <React.StrictMode>
     <App />
