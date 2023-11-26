@@ -21,7 +21,7 @@ import ErrorBoundary from "./common/ErrorBoundary";
 export const App = () => {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-app">
         <div className="App">
           <Header />
           <Container>

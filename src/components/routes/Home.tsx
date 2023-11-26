@@ -22,13 +22,6 @@ export default function Home() {
 
   return (
     <div className="posts">
-      {/* <button
-        onClick={() => {
-          throw new Error("Errror");
-        }}
-      >
-        ERROR
-      </button> */}
       {posts.map((post) => (
         <Card
           description={post.body}
